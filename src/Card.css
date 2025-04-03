@@ -1,0 +1,58 @@
+/* Card.css */
+.card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+    padding: 20px;
+    width: 100%;
+    text-align: center;
+}
+
+.card-image {
+    width: 100%;
+    border-radius: 10px;
+    max-height: 300px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 10px;
+}
+
+.card h2 {
+    margin-bottom: 10px;
+}
+
+.card .card-content {
+    text-align: left;
+}
+
+.main-card {
+    width: 60%;
+    max-width: 600px;
+    padding: 20px;
+    display: flex;
+    align-items: center; /* Aligns text and image in the center */
+    justify-content: space-between; /* Spreads content evenly */
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-content {
+    display: flex;
+    align-items: center; /* Aligns items in the center */
+    justify-content: space-between;
+    width: 100%;
+}
+
+.text-content {
+    flex: 1; /* Takes up available space */
+    padding-right: 20px; /* Adds spacing between text and image */
+}
+
+
+
+
+

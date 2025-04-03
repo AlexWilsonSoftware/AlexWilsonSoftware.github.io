@@ -2,6 +2,32 @@
   text-align: center;
 }
 
+.montserrat {
+               font-family: "Montserrat", sans-serif;
+               font-optical-sizing: auto;
+               font-weight: 700;
+               font-style: normal;
+             }
+
+/* In App.css */
+body {
+  font-family: 'montserrat', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2 {
+  font-family: 'montserrat', sans-serif;
+  font-weight: 800;
+}
+
+p {
+  font-family: 'montserrat', sans-serif;
+  font-weight: 400;
+}
+
+
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
