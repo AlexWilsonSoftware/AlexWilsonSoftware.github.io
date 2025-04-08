@@ -1,0 +1,17 @@
+.projects {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 100%;
+}
+
+.projects > *:nth-child(3n + 1) {
+    justify-self: start; /* far left */
+}
+
+.projects > *:nth-child(3n + 2) {
+    justify-self: center; /* center */
+}
+
+.projects > *:nth-child(3n + 3) {
+    justify-self: end; /* far right */
+}
