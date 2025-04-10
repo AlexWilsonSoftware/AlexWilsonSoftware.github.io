@@ -1,17 +1,18 @@
 .projects {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fill, minmax(22rem, 1fr)); /* Automatically adjusts the number of columns */
+    gap: 16px; /* Space between the cards */
+    justify-items: center; /* Ensure the items are centered in their grid cell */
     width: 100%;
+    margin: 0 auto; /* Ensure the grid itself is centered */
 }
 
-.projects > *:nth-child(3n + 1) {
-    justify-self: start; /* far left */
+.projects > * {
+    display: flex;
+    justify-content: center; /* Center content within the card */
 }
 
-.projects > *:nth-child(3n + 2) {
-    justify-self: center; /* center */
-}
-
-.projects > *:nth-child(3n + 3) {
-    justify-self: end; /* far right */
+/* Ensure that for any odd number of cards, the middle one stays centered */
+.projects {
+    justify-content: center; /* This centers the entire grid */
 }
