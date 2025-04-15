@@ -73,6 +73,11 @@ button {
   min-height: 4rem;
   height: 4rem;
   max-height: 4rem;
+
+}
+
+button, .backArrow {
+  transition: transform 0.2s ease; /* smooth transition */
 }
 
 .buttonMain {
@@ -84,10 +89,17 @@ button {
   background: #ffffff;
 }
 
-button:hover {
+button:hover,
+.backArrow:hover {
   cursor: pointer;
+  transform: translateY(-2px);
 }
 
 .ProjectName {
   all: unset;
 }
+
+.hidden {
+  visibility: hidden;
+}
+

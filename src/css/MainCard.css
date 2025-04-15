@@ -8,16 +8,18 @@
     justify-content: space-between;
     align-items: center;
     padding: 0;
+    z-index: 1;
 }
 
 .main-image-content {
     height: auto;
     width: 60%;
     object-fit: cover;
+    transition: transform 0.3s ease; /* smooth transition */
 }
 
-.card-image{
-    width: 95%;
+.main-image-content:hover {
+    transform: scale(1.01);
 }
 
 .main-text-content {
@@ -25,7 +27,6 @@
 }
 
 .main-card {
-    padding: 0;
     min-width: 100%;
     width: 100%;
     max-width: 100%;
@@ -33,6 +34,26 @@
     min-height: 90vh;
     height: auto;
     max-height: none;
+}
+
+@media (max-width: 768px) {
+    .main-card-content {
+        flex-direction: column; /* stack vertically on small screens */
+        align-items: flex-start; /* align text to the left */
+    }
+
+    .main-image-content {
+        width: 100%; /* take full width */
+    }
+
+    .main-text-content {
+        padding-left: 0; /* remove side padding */
+        width: 100%;
+    }
+
+    .card-image {
+        width: 100%; /* make image full width */
+    }
 }
 
 

@@ -7,7 +7,7 @@ import "../css/Projects.css";
 
 function Projects() {
     return (
-        <div style={{maxWidth: '80%', margin: '0 auto'}}>
+        <div style={{maxWidth: '80%', margin: '0 auto', minHeight: '90vh'}}>
             {/* Project Cards */}
             <div className="projects">
                 <Card title="Project 1" image={projectImage} link="/project1">

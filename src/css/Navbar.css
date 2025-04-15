@@ -1,0 +1,39 @@
+nav {
+    background-color: black;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    z-index: 10;
+    position: relative;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+li {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 4px;
+    cursor: pointer;
+    margin: 0 20px;
+}
+
+nav li::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 1px;
+    background-color: white;
+    transition: width 0.3s ease;
+}
+
+nav li:hover::after {
+    width: 100%;
+}
+

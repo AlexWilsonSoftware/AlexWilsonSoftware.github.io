@@ -1,20 +1,27 @@
 import "../css/ProjectDetails.css";
-import { ReactComponent as BackArrowIcon } from "../images/arrow-left-line.svg";
+import { IoArrowBack } from "react-icons/io5";
+import { useNavigate } from "react-router-dom";
 
 function ProjectDetails( {name, children} ) {
     const scrollToTop = () => {
         window.scrollTo({
-            top: 0,    // Scroll to the top of the page
-            left: 0,   // Stay at the left position
-            behavior: 'smooth'  // Enable smooth scrolling
+            top: 0,
+            left: 0,
+            behavior: 'smooth'
         });
+    };
+
+    const navigate = useNavigate();
+    const handleBackClick = () => {
+        navigate('/projects');
     };
 
     return (
 
         <div style={{maxWidth: '70%', margin: '0 auto'}}>
-            <div style={{position: 'absolute', top: 120, left: 50}}>
+            <div style={{position: 'absolute', top: '10%', left: '2%'}}>
                 <div
+                    onClick={handleBackClick}
                     style={{
                         width: '4rem',
                         height: '4rem',
@@ -25,8 +32,9 @@ function ProjectDetails( {name, children} ) {
                         justifyContent: 'center',
                         cursor: 'pointer',
                     }}
+                    className = "backArrow"
                 >
-                    <BackArrowIcon style={{ fill: 'white !important' }} width="2rem" height="2rem" />
+                    <IoArrowBack size={32} color="white"/>
                 </div>
             </div>
 

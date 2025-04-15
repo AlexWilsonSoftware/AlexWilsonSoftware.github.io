@@ -12,7 +12,7 @@ import { HashRouter, Route, Routes, Link } from 'react-router-dom';
 function App() {
     return (
         <HashRouter>
-            <div>
+            <div className="app-content">
                 <Navbar />
                 <Routes>
                     <Route exact path="/" element={
