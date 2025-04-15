@@ -1,9 +1,9 @@
 import '../css/Card.css';
 import { Link } from 'react-router-dom';
 
-function Card({ title, children, image, className, link }) {
+function Card({ title, children, image, className, link, style }) {
     return (
-        <div className={`card ${className}`}>
+        <div className={`card ${className}`} style={style}>
             <div className="card-content">
                 <div className="image-content">
                     {image && <img src={image} alt={title} className="card-image" />}

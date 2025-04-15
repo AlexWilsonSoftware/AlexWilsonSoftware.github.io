@@ -1,8 +1,8 @@
 import "../css/Tag.css";
 
-function Tag({ name }) {
+function Tag({ name, style }) {
     return (
-        <div className="tag">
+        <div className="tag" style={style}>
             <span>
                 {name}
             </span>
