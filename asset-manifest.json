@@ -1,18 +1,24 @@
 {
   "files": {
-    "main.css": "/static/css/main.8732b17d.css",
-    "main.js": "/static/js/main.9e06822f.js",
+    "main.css": "/static/css/main.4dcbb74e.css",
+    "main.js": "/static/js/main.56c144e0.js",
     "static/js/453.ed3810f9.chunk.js": "/static/js/453.ed3810f9.chunk.js",
     "static/media/Headshot4.png": "/static/media/Headshot4.72ba4f3e310077da8863.png",
+    "static/media/EditTask.png": "/static/media/EditTask.c80abbf866b4d551be57.png",
+    "static/media/ProfileScreen.png": "/static/media/ProfileScreen.95ed33acda955d621fe4.png",
+    "static/media/RenovationTasks.png": "/static/media/RenovationTasks.f5d53d9934d1d2e9f1bc.png",
+    "static/media/MyRenovations.png": "/static/media/MyRenovations.0d15ae44fb024c63ec30.png",
+    "static/media/EditProfile.png": "/static/media/EditProfile.7a451af75249feca06d4.png",
     "static/media/logo.jpg": "/static/media/logo.dd8e3ee1eda99a215d2d.jpg",
     "static/media/anotherproject.jpg": "/static/media/anotherproject.41b84b714a6136afa4a6.jpg",
+    "static/media/HomeHelperLogo.png": "/static/media/HomeHelperLogo.66a56ba0e3ed04b2b181.png",
     "index.html": "/index.html",
-    "main.8732b17d.css.map": "/static/css/main.8732b17d.css.map",
-    "main.9e06822f.js.map": "/static/js/main.9e06822f.js.map",
+    "main.4dcbb74e.css.map": "/static/css/main.4dcbb74e.css.map",
+    "main.56c144e0.js.map": "/static/js/main.56c144e0.js.map",
     "453.ed3810f9.chunk.js.map": "/static/js/453.ed3810f9.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.8732b17d.css",
-    "static/js/main.9e06822f.js"
+    "static/css/main.4dcbb74e.css",
+    "static/js/main.56c144e0.js"
   ]
 }
