@@ -5,7 +5,13 @@ import Projects from "./Projects";
 import ProjectDetails from "./ProjectDetails";
 import Footer from "./Footer";
 import headshot from '../images/Headshot4.png';
-import { project1Description } from '../descriptions/Project1';
+import { homeHelperDescription } from '../descriptions/HomeHelperDetails';
+import { personalWebsiteDescription } from '../descriptions/PersonalWebsiteDetails';
+import { gameReviewSiteDescription } from '../descriptions/GameReviewSiteDetails';
+import { wineWiseDescription } from '../descriptions/WineWiseDetails';
+import { pongDescription } from '../descriptions/PongDetails';
+import { resourceStockpilingDescription } from "../descriptions/ResourceStockpilingDetails";
+import { aboutMeDescription } from "../descriptions/AboutMe";
 import { HashRouter, Route, Routes, Link } from 'react-router-dom';
 
 
@@ -30,9 +36,25 @@ function App() {
                         </div>
                     } />
                     <Route path="/projects" element={<Projects />} />
-                    <Route path="/project1" element={<ProjectDetails name="Project 1">
-                        {project1Description}
+                    <Route path="/projects/homehelper" element={<ProjectDetails name="Home Helper">
+                        {homeHelperDescription}
                     </ProjectDetails>}/>
+                    <Route path="/projects/personalwebsite" element={<ProjectDetails name="Personal Website">
+                        {personalWebsiteDescription}
+                    </ProjectDetails>}/>
+                    <Route path="/projects/gamereviewsite" element={<ProjectDetails name="Game Review Site">
+                        {gameReviewSiteDescription}
+                    </ProjectDetails>}/>
+                    <Route path="/projects/winewise" element={<ProjectDetails name="WineWise">
+                        {wineWiseDescription}
+                    </ProjectDetails>}/>
+                    <Route path="/projects/pong" element={<ProjectDetails name="Pong">
+                        {pongDescription}
+                    </ProjectDetails>}/>
+                    <Route path="/projects/resourcestockpiling" element={<ProjectDetails name="Resource Stockpiling">
+                        {resourceStockpilingDescription}
+                    </ProjectDetails>}/>
+                    <Route path="/about" element={aboutMeDescription}/>
                 </Routes>
                 <Footer/>
             </div>

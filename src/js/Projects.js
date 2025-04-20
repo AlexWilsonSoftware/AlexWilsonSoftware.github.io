@@ -1,8 +1,12 @@
 import React from 'react';
 import Card from "./Card";
 import Tag from "./Tag";
-import projectImage from '../images/project.jpg';
+import homeHelperImage from '../images/HomeHelper/HomeHelperLogo.png';
 import anotherProjectImage from '../images/anotherproject.jpg';
+import personalLogo from '../images/logo.jpg';
+import wineWiseLogo from '../images/WineWiseLogo.png'
+import pongImage from '../images/PongLogo.png'
+import camoImage from '../images/CamoLogo.png'
 import "../css/Projects.css";
 
 const green = "#65CD6F";
@@ -13,7 +17,7 @@ function Projects() {
         <div style={{maxWidth: '80%', margin: '0 auto', minHeight: '90vh'}}>
             {/* Project Cards */}
             <div className="projects">
-                <Card title="Home Helper" image={projectImage} link="/project1" className="fade-in-up" style={{animationDelay: '0.2s'}}>
+                <Card title="Home Helper" image={homeHelperImage} link="/projects/homehelper" className="fade-in-up" style={{animationDelay: '0.2s'}}>
                     <div>
                         <Tag name="Ongoing" style={{backgroundColor: yellow, borderColor: yellow}}/>
                         <Tag name="Java" />
@@ -24,23 +28,25 @@ function Projects() {
                         <Tag name="UI Design" />
                     </div>
                 </Card>
-                <Card title="Personal Website" image={anotherProjectImage} className="fade-in-up" style={{animationDelay: '0.25s'}}>
+                <Card title="Personal Website" link="/projects/personalwebsite" image={personalLogo} className="fade-in-up" style={{animationDelay: '0.25s'}}>
                     <div>
                         <Tag name="Ongoing" style={{backgroundColor: yellow, borderColor: yellow}}/>
+                        <Tag name="HTML" />
                         <Tag name="React" />
                         <Tag name="CSS" />
                         <Tag name="UI Design" />
                     </div>
                 </Card>
-                <Card title="Game Review Site" image={anotherProjectImage} className="fade-in-up" style={{animationDelay: '0.3s'}}>
+                <Card title="Game Review Site" link="/projects/gamereviewsite" image={anotherProjectImage} className="fade-in-up" style={{animationDelay: '0.3s'}}>
                     <div>
                         <Tag name="Ongoing" style={{backgroundColor: yellow, borderColor: yellow}}/>
                         <Tag name="TypeScript" />
                         <Tag name="Bruno" />
+                        <Tag name="HTML" />
                         <Tag name="React" />
                     </div>
                 </Card>
-                <Card title="WineWise" image={anotherProjectImage} className="fade-in-up" style={{animationDelay: '0.35s'}}>
+                <Card title="WineWise" link="/projects/winewise" image={wineWiseLogo} className="fade-in-up" style={{animationDelay: '0.35s'}}>
                     <div>
                         <Tag name="Complete" style={{backgroundColor: green, borderColor: green}}/>
                         <Tag name="Java" />
@@ -49,7 +55,7 @@ function Projects() {
                         <Tag name="Cucumber" />
                     </div>
                 </Card>
-                <Card title="Pong" image={projectImage} className="fade-in-up" style={{animationDelay: '0.4s'}}>
+                <Card title="Pong" link="/projects/pong" image={pongImage} className="fade-in-up" style={{animationDelay: '0.4s'}}>
                     <div>
                         <Tag name="Complete" style={{backgroundColor: green, borderColor: green}}/>
                         <Tag name="C" />
@@ -57,7 +63,7 @@ function Projects() {
                         <Tag name="Microcontrollers" />
                     </div>
                 </Card>
-                <Card title="Resoruce Stockpiling" image={anotherProjectImage} className="fade-in-up" style={{animationDelay: '0.45s'}}>
+                <Card title="Resource Stockpiling" link="/projects/resourcestockpiling" image={camoImage} className="fade-in-up" style={{animationDelay: '0.45s'}}>
                     <div>
                         <Tag name="Complete" style={{backgroundColor: green, borderColor: green}}/>
                         <Tag name="Java" />

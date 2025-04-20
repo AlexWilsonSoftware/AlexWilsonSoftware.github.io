@@ -50,9 +50,9 @@
 }
 
 .image-content {
-    height: 20rem;
+    height: 14rem;
     width: 22rem;
-    object-fit: cover;
+    flex-shrink: 0;
 }
 
 .card-image {

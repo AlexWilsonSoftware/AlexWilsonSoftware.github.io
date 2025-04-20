@@ -18,8 +18,8 @@ function ProjectDetails( {name, children} ) {
 
     return (
 
-        <div style={{maxWidth: '70%', margin: '0 auto'}}>
-            <div style={{position: 'absolute', top: '10%', left: '2%'}}>
+        <div style={{maxWidth: '65%', margin: '0 auto'}} id={"Details_" + name.replace(/\s+/g, "-")}>
+            <div style={{position: 'absolute', top: '10%', left: '2%'}} className="backArrowContainer">
                 <div
                     onClick={handleBackClick}
                     style={{
@@ -38,10 +38,10 @@ function ProjectDetails( {name, children} ) {
                 </div>
             </div>
 
-            <div className="TitleContent">
+            <div className="TitleContent fade-in-up">
                 <h1>{name}</h1>
             </div>
-            <div className="DetailsContent">
+            <div className="DetailsContent fade-in-up" id={"DetailsContent_" + name.replace(/\s+/g, "-")} style={{animationDelay: '0.2s'}}>
                 {children}
                 <button className="buttonMain go-to-top" onClick={scrollToTop}>Go to top</button>
             </div>

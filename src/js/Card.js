@@ -6,7 +6,7 @@ function Card({ title, children, image, className, link, style }) {
         <div className={`card ${className}`} style={style}>
             <div className="card-content">
                 <div className="image-content">
-                    {image && <img src={image} alt={title} className="card-image" />}
+                    <img src={image} alt={title} className="card-image" />
                 </div>
                 <div className="text-content">
                     <Link to={link} className="ProjectName">

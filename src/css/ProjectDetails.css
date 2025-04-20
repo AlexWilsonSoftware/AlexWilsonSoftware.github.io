@@ -11,12 +11,31 @@
     padding-bottom: 1rem;
 }
 
+#DetailsContent_Game-Review-Site {
+    padding-bottom: 50rem;
+}
+
+#DetailsContent_Game-Review-Site button {
+    display: none;
+}
+
+#DetailsContent_About-Me button {
+    display: none;
+}
+
+#Details_About-Me .backArrowContainer {
+    display: none;
+}
+
 /* Scoped to the .ProjectDetails component */
 .DetailsContent img {
-    width: 60%;
+    width: 80%;
+    height: auto;
     display: block;
     margin: 20px auto;
+    image-rendering: crisp-edges; /* or try crisp-edges */
 }
+
 
 .DetailsContent button {
     display: block;
