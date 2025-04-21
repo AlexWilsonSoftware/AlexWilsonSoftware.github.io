@@ -1,0 +1,28 @@
+.about-me-text-content {
+    margin-top: -15rem;
+    max-width: 55%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    text-align: start;
+    gap: 2rem;
+}
+
+.about-me-text-content h1 {
+    margin: 0;
+}
+
+.tag-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.title-content {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.about-me-text-content p {
+    padding-left: 4rem;
+}
