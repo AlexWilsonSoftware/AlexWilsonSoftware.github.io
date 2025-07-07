@@ -7,6 +7,7 @@ import personalLogo from '../images/logo.jpg';
 import wineWiseLogo from '../images/WineWiseLogo.png'
 import pongImage from '../images/PongLogo.png'
 import camoImage from '../images/CamoLogo.png'
+import albumNotesLogo from '../images/AlbumNotesLogo.png'
 import "../css/Projects.css";
 
 const green = "#65CD6F";
@@ -17,6 +18,17 @@ function Projects() {
         <div style={{maxWidth: '80%', margin: '0 auto', minHeight: '90vh'}}>
             {/* Project Cards */}
             <div className="projects">
+                <Card title="Album Notes" image={albumNotesLogo} link="/projects/albumnotes" className="fade-in-up" style={{animationDelay: '0.2s'}}>
+                    <div>
+                        <Tag name="Complete" style={{backgroundColor: green, borderColor: green}}/>
+                        <Tag name="Next.js" />
+                        <Tag name="Tailwind CSS" />
+                        <Tag name="Shadcn" />
+                        <Tag name="React" />
+                        <Tag name="Clerk" />
+                        <Tag name="Vercel" />
+                    </div>
+                </Card>
                 <Card title="Home Helper" image={homeHelperImage} link="/projects/homehelper" className="fade-in-up" style={{animationDelay: '0.2s'}}>
                     <div>
                         <Tag name="Ongoing" style={{backgroundColor: yellow, borderColor: yellow}}/>

@@ -13,6 +13,7 @@ import { gameReviewSiteDescription } from '../descriptions/GameReviewSiteDetails
 import { wineWiseDescription } from '../descriptions/WineWiseDetails';
 import { pongDescription } from '../descriptions/PongDetails';
 import { resourceStockpilingDescription } from "../descriptions/ResourceStockpilingDetails";
+import { albumNotesDescription } from "../descriptions/AlbumNotesDetails";
 import { HashRouter, Route, Routes, Link } from 'react-router-dom';
 
 
@@ -39,6 +40,9 @@ function App() {
                     <Route path="/projects" element={<Projects />} />
                     <Route path="/projects/homehelper" element={<ProjectDetails name="Home Helper">
                         {homeHelperDescription}
+                    </ProjectDetails>}/>
+                    <Route path="/projects/albumnotes" element={<ProjectDetails name="Album Notes">
+                        {albumNotesDescription}
                     </ProjectDetails>}/>
                     <Route path="/projects/personalwebsite" element={<ProjectDetails name="Personal Website">
                         {personalWebsiteDescription}
