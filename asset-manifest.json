@@ -1,10 +1,13 @@
 {
   "files": {
     "main.css": "/static/css/main.c85cd0ef.css",
-    "main.js": "/static/js/main.f9a49ee1.js",
+    "main.js": "/static/js/main.7f08ce32.js",
     "static/js/453.ed3810f9.chunk.js": "/static/js/453.ed3810f9.chunk.js",
+    "static/media/home-page.png": "/static/media/home-page.0baace902f1e30d0f3fd.png",
     "static/media/EndGame.png": "/static/media/EndGame.d6fded81991b8641572a.png",
     "static/media/MidGame.png": "/static/media/MidGame.a32da68d1863cecc3832.png",
+    "static/media/edit-page.png": "/static/media/edit-page.50464a4b121fdcb65b10.png",
+    "static/media/selected-album.png": "/static/media/selected-album.b3b89fab33df46781ed7.png",
     "static/media/Headshot4.png": "/static/media/Headshot4.72ba4f3e310077da8863.png",
     "static/media/HomeScreen.png": "/static/media/HomeScreen.142c6b90840501c2f879.png",
     "static/media/AnotherHeadshot.png": "/static/media/AnotherHeadshot.4c0130cebcef61a41d15.png",
@@ -19,17 +22,18 @@
     "static/media/EditProfile.png": "/static/media/EditProfile.7a451af75249feca06d4.png",
     "static/media/SetupScreen.png": "/static/media/SetupScreen.b63e64a2a3ab0a8b223f.png",
     "static/media/MainScreen.png": "/static/media/MainScreen.4a6faedb56fcdab8d869.png",
+    "static/media/AlbumNotesLogo.png": "/static/media/AlbumNotesLogo.8d7ad6ffbcfb699c40b8.png",
     "static/media/logo.jpg": "/static/media/logo.dd8e3ee1eda99a215d2d.jpg",
     "static/media/AdminScreen.png": "/static/media/AdminScreen.693b9b8ae522f520abc2.png",
     "static/media/WineDetails.png": "/static/media/WineDetails.5338ce76de76428e5777.png",
     "static/media/HomeHelperLogo.png": "/static/media/HomeHelperLogo.66a56ba0e3ed04b2b181.png",
     "index.html": "/index.html",
     "main.c85cd0ef.css.map": "/static/css/main.c85cd0ef.css.map",
-    "main.f9a49ee1.js.map": "/static/js/main.f9a49ee1.js.map",
+    "main.7f08ce32.js.map": "/static/js/main.7f08ce32.js.map",
     "453.ed3810f9.chunk.js.map": "/static/js/453.ed3810f9.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.c85cd0ef.css",
-    "static/js/main.f9a49ee1.js"
+    "static/js/main.7f08ce32.js"
   ]
 }
