@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Alex Wilson — Software Developer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet" />
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --bg: #0c0c0e;
+            --bg2: #111113;
+            --surface: #161618;
+            --border: rgba(255,255,255,0.07);
+            --border-hover: rgba(255,255,255,0.14);
+            --text-primary: #f0f0f0;
+            --text-secondary: #888;
+            --text-muted: #555;
+            --accent: #d4d4d8;
+            --accent-glow: rgba(212,212,216,0.08);
+            --font-sans: 'DM Sans', sans-serif;
+            --font-mono: 'DM Mono', monospace;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            background: var(--bg);
+            color: var(--text-primary);
+            font-family: var(--font-sans);
+            font-weight: 300;
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .layout {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            min-height: 100vh;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            gap: 0 5rem;
+        }
+
+        .left {
+            padding: 5rem 0 5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+        }
+
+        .left-name {
+            font-size: 1.2rem;
+            font-weight: 500;
+            letter-spacing: -0.01em;
+            color: var(--text-primary);
+        }
+
+        .left-role {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            font-family: var(--font-mono);
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            margin-top: 0.25rem;
+        }
+
+        .left-tagline {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            max-width: 220px;
+        }
+
+        .left-nav {
+            display: flex;
+            flex-direction: column;
+            gap: 0.2rem;
+        }
+
+        .left-nav a {
+            font-size: 0.8rem;
+            font-family: var(--font-mono);
+            color: var(--text-muted);
+            text-decoration: none;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            padding: 0.3rem 0;
+            transition: color 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .left-nav a::before {
+            content: '';
+            display: inline-block;
+            width: 18px;
+            height: 1px;
+            background: currentColor;
+            transition: width 0.2s;
+        }
+
+        .left-nav a:hover { color: var(--text-primary); }
+        .left-nav a:hover::before { width: 28px; }
+
+        .left-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .left-links a {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: color 0.2s;
+        }
+
+        .left-links a:hover { color: var(--text-primary); }
+        .left-links svg { width: 14px; height: 14px; flex-shrink: 0; }
+
+        .divider-left {
+            width: 32px;
+            height: 1px;
+            background: var(--border);
+        }
+
+        .right {
+            padding: 5rem 0 8rem;
+            border-left: 1px solid var(--border);
+            padding-left: 5rem;
+        }
+
+        section { margin-bottom: 6rem; }
+
+        .section-label {
+            font-size: 0.7rem;
+            font-family: var(--font-mono);
+            color: var(--text-muted);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .section-label::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--border);
+        }
+
+        .hero-headline {
+            font-size: clamp(2.2rem, 4vw, 3rem);
+            font-weight: 400;
+            letter-spacing: -0.03em;
+            line-height: 1.15;
+            color: var(--text-primary);
+            margin-bottom: 1.25rem;
+        }
+
+        .hero-headline em {
+            font-style: italic;
+            color: var(--text-secondary);
+        }
+
+        .hero-body {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            max-width: 480px;
+            line-height: 1.75;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2.5rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-ghost {
+            font-size: 0.78rem;
+            font-family: var(--font-mono);
+            letter-spacing: 0.05em;
+            color: var(--text-secondary);
+            border: 1px solid var(--border);
+            padding: 0.6rem 1.2rem;
+            text-decoration: none;
+            transition: all 0.2s;
+            background: transparent;
+            cursor: pointer;
+        }
+
+        .btn-ghost:hover {
+            color: var(--text-primary);
+            border-color: var(--border-hover);
+            background: var(--accent-glow);
+        }
+
+        .btn-primary {
+            font-size: 0.78rem;
+            font-family: var(--font-mono);
+            letter-spacing: 0.05em;
+            color: var(--bg);
+            background: var(--accent);
+            padding: 0.6rem 1.2rem;
+            text-decoration: none;
+            transition: all 0.2s;
+            border: 1px solid var(--accent);
+        }
+
+        .btn-primary:hover { background: #fff; }
+
+        .about-text {
+            font-size: 0.92rem;
+            color: var(--text-secondary);
+            line-height: 1.85;
+            max-width: 520px;
+        }
+
+        .about-text p + p { margin-top: 1rem; }
+
+        .projects-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .project-card {
+            padding: 1.5rem 0;
+            border-bottom: 1px solid var(--border);
+            display: grid;
+            grid-template-columns: 1fr auto;
+            align-items: start;
+            gap: 1rem;
+            transition: all 0.2s;
+            cursor: default;
+        }
+
+        .project-card:first-child { border-top: 1px solid var(--border); }
+
+        .project-card:hover {
+            background: var(--accent-glow);
+            margin: 0 -1.5rem;
+            padding-left: 1.5rem;
+            padding-right: 1.5rem;
+        }
+
+        .project-name {
+            font-size: 0.92rem;
+            font-weight: 500;
+            color: var(--text-primary);
+            margin-bottom: 0.3rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .project-name a {
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .project-name a:hover { color: #fff; }
+
+        .project-status {
+            font-size: 0.65rem;
+            font-family: var(--font-mono);
+            letter-spacing: 0.05em;
+            padding: 0.15rem 0.5rem;
+            border-radius: 99px;
+            text-transform: uppercase;
+        }
+
+        .status-complete { background: rgba(134,239,172,0.1); color: #86efac; border: 1px solid rgba(134,239,172,0.2); }
+        .status-ongoing  { background: rgba(253,224,71,0.08);  color: #fde047; border: 1px solid rgba(253,224,71,0.15); }
+
+        .project-desc {
+            font-size: 0.84rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-top: 0.1rem;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.3rem;
+            margin-top: 0.75rem;
+        }
+
+        .tag {
+            font-size: 0.65rem;
+            font-family: var(--font-mono);
+            letter-spacing: 0.04em;
+            color: var(--text-muted);
+            border: 1px solid var(--border);
+            padding: 0.15rem 0.5rem;
+            background: var(--surface);
+        }
+
+        /* right-side links column */
+        .project-actions {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 0.4rem;
+            margin-top: 0.25rem;
+        }
+
+        .project-link {
+            font-size: 0.7rem;
+            font-family: var(--font-mono);
+            color: var(--text-muted);
+            text-decoration: none;
+            letter-spacing: 0.04em;
+            transition: color 0.2s;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .project-link:hover { color: var(--text-primary); }
+        .project-link svg { width: 11px; height: 11px; flex-shrink: 0; }
+
+        /* live link gets a subtle dot accent */
+        .project-link.live { color: rgba(134,239,172,0.5); }
+        .project-link.live:hover { color: #86efac; }
+
+        .tech-groups { display: flex; flex-direction: column; gap: 1.5rem; }
+
+        .tech-group-label {
+            font-size: 0.7rem;
+            font-family: var(--font-mono);
+            color: var(--text-muted);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+
+        .tech-list { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+
+        .tech-tag {
+            font-size: 0.75rem;
+            font-family: var(--font-mono);
+            color: var(--text-secondary);
+            border: 1px solid var(--border);
+            padding: 0.3rem 0.75rem;
+            background: var(--surface);
+            transition: all 0.15s;
+        }
+
+        .tech-tag:hover {
+            border-color: var(--border-hover);
+            color: var(--text-primary);
+            background: var(--accent-glow);
+        }
+
+        .contact-line {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            max-width: 420px;
+            margin-bottom: 2rem;
+        }
+
+        .contact-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+
+        .contact-link {
+            font-size: 0.78rem;
+            font-family: var(--font-mono);
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            transition: color 0.2s;
+        }
+
+        .contact-link:hover { color: var(--text-primary); }
+        .contact-link svg { width: 13px; height: 13px; }
+
+        .footer {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            font-size: 0.72rem;
+            font-family: var(--font-mono);
+            color: var(--text-muted);
+            letter-spacing: 0.04em;
+        }
+
+        .fade-up {
+            opacity: 0;
+            transform: translateY(16px);
+            animation: fadeUp 0.6s ease forwards;
+        }
+
+        @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+
+        .d1 { animation-delay: 0.1s; }
+        .d2 { animation-delay: 0.2s; }
+        .d3 { animation-delay: 0.3s; }
+        .d4 { animation-delay: 0.4s; }
+
+        @media (max-width: 720px) {
+            .layout { grid-template-columns: 1fr; padding: 0 1.25rem; gap: 0; }
+            .left { padding: 3rem 0 2rem; gap: 1.5rem; }
+            .left-nav { flex-direction: row; flex-wrap: wrap; gap: 0.5rem 1.5rem; }
+            .left-nav a::before { display: none; }
+            .right { border-left: none; border-top: 1px solid var(--border); padding-left: 0; padding-top: 3rem; }
+            .project-card:hover { margin: 0; padding-left: 0; padding-right: 0; background: transparent; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="layout">
+
+    <!-- Left Column -->
+    <aside class="left fade-up d1">
+        <div>
+            <div class="left-name">Alex Wilson</div>
+            <div class="left-role">Software Developer</div>
+        </div>
+
+        <p class="left-tagline">Final-year Software Engineering student at the University of Canterbury.</p>
+
+        <nav class="left-nav">
+            <a href="#about">About</a>
+            <a href="#projects">Projects</a>
+            <a href="#tech">Skills</a>
+            <a href="#contact">Contact</a>
+        </nav>
+
+        <div class="divider-left"></div>
+
+        <div class="left-links">
+            <a href="https://github.com/AlexWilsonSoftware" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.605-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
+                GitHub
+            </a>
+            <a href="https://www.linkedin.com/in/alex-wilson-331696322/" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                LinkedIn
+            </a>
+            <a href="mailto:wilsonalex558@gmail.com">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                Email
+            </a>
+            <a href="https://www.instagram.com/alexx._.wilsonn/" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                Instagram
+            </a>
+        </div>
+    </aside>
+
+    <!-- Right Column -->
+    <main class="right">
+
+        <!-- Hero -->
+        <section id="hero" class="fade-up d2">
+            <h1 class="hero-headline">
+                Kia Ora, I'm Alex.<br />
+                <em>I'm a software developer.</em>
+            </h1>
+            <p class="hero-body">
+                Full-stack developer with a focus on clean code, thoughtful UI, and shipping things that work. Currently studying at the University of Canterbury.
+            </p>
+            <div class="hero-cta">
+                <a href="#projects" class="btn-primary">See Projects</a>
+            </div>
+        </section>
+
+        <!-- About -->
+        <section id="about" class="fade-up d3">
+            <div class="section-label">About</div>
+            <div class="about-text">
+                <p>I'm a final-year Software Engineering student at the University of Canterbury with a strong interest in full-stack development and user-centered design.</p>
+                <p>I've worked on a variety of projects across the stack. I like working in collaborative teams and I'm always looking to expand what I know.</p>
+                <p>Outside of code you'll find me on my bike, listening to music, watching films, or watching baseball.</p>
+            </div>
+        </section>
+
+        <!-- Projects -->
+        <section id="projects" class="fade-up d3">
+            <div class="section-label">Projects</div>
+            <div class="projects-grid">
+
+                <div class="project-card">
+                    <div>
+                        <div class="project-name">
+                            Album Notes
+                            <span class="project-status status-complete">Complete</span>
+                        </div>
+                        <p class="project-desc">A minimalist full-stack app for keeping notes on albums. Built with Next.js, Clerk auth, and deployed on Vercel.</p>
+                        <div class="project-tags">
+                            <span class="tag">Next.js</span><span class="tag">React</span><span class="tag">Tailwind</span><span class="tag">Clerk</span><span class="tag">Vercel</span>
+                        </div>
+                    </div>
+                    <div class="project-actions">
+                        <a class="project-link live" href="https://album-notes.vercel.app/" target="_blank" rel="noopener">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+                            Live
+                        </a>
+                        <a class="project-link" href="https://github.com/AlexWilsonSoftware/album-notes" target="_blank" rel="noopener">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.605-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
+                            GitHub
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div>
+                        <div class="project-name">
+                            Frank
+                            <span class="project-status status-complete">Complete</span>
+                        </div>
+                        <p class="project-desc">A daily Wikipedia article site designed to broaden general knowledge. One new article is served every day. Built with Next.js and deployed on Vercel.</p>
+                        <div class="project-tags">
+                            <span class="tag">Next.js</span><span class="tag">React</span><span class="tag">Tailwind</span><span class="tag">Vercel</span>
+                        </div>
+                    </div>
+                    <div class="project-actions">
+                        <a class="project-link live" href="https://frank-wiki.vercel.app/" target="_blank" rel="noopener">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+                            Live
+                        </a>
+                        <a class="project-link" href="https://github.com/AlexWilsonSoftware/frank" target="_blank" rel="noopener">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.605-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
+                            GitHub
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div>
+                        <div class="project-name">
+                            bcli
+                            <span class="project-status status-complete">Complete</span>
+                        </div>
+                        <p class="project-desc">A command-line tool for MLB stats. Quick access to hitting and pitching stats, plus player and team comparisons, built with Python and Click.</p>
+                        <div class="project-tags">
+                            <span class="tag">Python</span><span class="tag">Click</span>
+                        </div>
+                    </div>
+                    <div class="project-actions">
+                        <a class="project-link" href="https://github.com/AlexWilsonSoftware/bcli" target="_blank" rel="noopener">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.605-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
+                            GitHub
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div>
+                        <div class="project-name">
+                            Home Helper
+                            <span class="project-status status-complete">Complete</span>
+                        </div>
+                        <p class="project-desc">A full-stack renovation tracking app built with a team of 7 using Spring Boot and Thymeleaf, following Scrum across year-long development.</p>
+                        <div class="project-tags">
+                            <span class="tag">Java</span><span class="tag">Spring Boot</span><span class="tag">Thymeleaf</span><span class="tag">JUnit</span><span class="tag">Scrum</span>
+                        </div>
+                    </div>
+                    <div class="project-actions">
+                        <a class="project-link" href="https://github.com/AlexWilsonSoftware/HomeHelper" target="_blank" rel="noopener">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.605-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
+                            GitHub
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div>
+                        <div class="project-name">
+                            Game Review Site
+                            <span class="project-status status-complete">Complete</span>
+                        </div>
+                        <p class="project-desc">A full-stack game review platform with a TypeScript/Node.js REST backend and a React frontend, built for SENG365.</p>
+                        <div class="project-tags">
+                            <span class="tag">TypeScript</span><span class="tag">Node.js</span><span class="tag">React</span><span class="tag">MySQL</span>
+                        </div>
+                    </div>
+                    <div class="project-actions">
+                        <a class="project-link" href="https://github.com/AlexWilsonSoftware/GameReviewSiteBackend" target="_blank" rel="noopener">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.605-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
+                            GitHub
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div>
+                        <div class="project-name">
+                            WineWise
+                            <span class="project-status status-complete">Complete</span>
+                        </div>
+                        <p class="project-desc">A JavaFX kiosk app for discovering and reviewing wines, built with a team of 5, backed by SQLite and tested with JUnit and Cucumber.</p>
+                        <div class="project-tags">
+                            <span class="tag">Java</span><span class="tag">JavaFX</span><span class="tag">SQLite</span><span class="tag">JUnit</span><span class="tag">Cucumber</span>
+                        </div>
+                    </div>
+                    <div class="project-actions">
+                        <a class="project-link" href="https://github.com/AlexWilsonSoftware/SENG202-WineWise" target="_blank" rel="noopener">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.605-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
+                            GitHub
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div>
+                        <div class="project-name">
+                            Pong
+                            <span class="project-status status-complete">Complete</span>
+                        </div>
+                        <p class="project-desc">Pong implemented in C on a microcontroller with a 7×5 LED grid and two-player IR communication, for ENCE260.</p>
+                        <div class="project-tags">
+                            <span class="tag">C</span><span class="tag">Microcontrollers</span><span class="tag">IR Communication</span>
+                        </div>
+                    </div>
+                    <div class="project-actions">
+                        <a class="project-link" href="https://github.com/AlexWilsonSoftware/ENCE260-Pong" target="_blank" rel="noopener">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.605-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
+                            GitHub
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div>
+                        <div class="project-name">
+                            Resource Stockpiling
+                            <span class="project-status status-complete">Complete</span>
+                        </div>
+                        <p class="project-desc">A tower-defense Java game built with JavaFX for SENG201 — my first Java project, with full game logic, inventory management, and JUnit tests.</p>
+                        <div class="project-tags">
+                            <span class="tag">Java</span><span class="tag">JavaFX</span><span class="tag">JUnit</span>
+                        </div>
+                    </div>
+                    <div class="project-actions">
+                        <a class="project-link" href="https://github.com/AlexWilsonSoftware/SENG201-Pair-Project---Resource-Stockpiling" target="_blank" rel="noopener">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.605-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
+                            GitHub
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Skills -->
+        <section id="tech" class="fade-up d4">
+            <div class="section-label">Skills</div>
+            <div class="tech-groups">
+                <div>
+                    <div class="tech-group-label">Languages</div>
+                    <div class="tech-list">
+                        <span class="tech-tag">Java</span><span class="tech-tag">Python</span><span class="tech-tag">C</span><span class="tech-tag">JavaScript</span><span class="tech-tag">TypeScript</span><span class="tech-tag">HTML</span><span class="tech-tag">CSS</span><span class="tech-tag">Rust</span><span class="tech-tag">Bash</span>
+                    </div>
+                </div>
+                <div>
+                    <div class="tech-group-label">Frameworks & Libraries</div>
+                    <div class="tech-list">
+                        <span class="tech-tag">React</span><span class="tech-tag">Next.js</span><span class="tech-tag">Spring Boot</span><span class="tech-tag">Node.js</span><span class="tech-tag">JavaFX</span><span class="tech-tag">Tailwind CSS</span><span class="tech-tag">Bootstrap</span><span class="tech-tag">Thymeleaf</span>
+                    </div>
+                </div>
+                <div>
+                    <div class="tech-group-label">Tools & Practices</div>
+                    <div class="tech-list">
+                        <span class="tech-tag">Git</span><span class="tech-tag">GitHub</span><span class="tech-tag">GitLab</span><span class="tech-tag">JUnit</span><span class="tech-tag">Cucumber</span><span class="tech-tag">Scrum</span><span class="tech-tag">SQL</span><span class="tech-tag">Vercel</span><span class="tech-tag">Kubernetes</span><span class="tech-tag">AWS</span><span class="tech-tag">Docker</span><span class="tech-tag">Jenkins</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section id="contact" class="fade-up d4">
+            <div class="section-label">Contact</div>
+            <p class="contact-line">Open to internships, grad roles, and interesting projects. Feel free to reach out.</p>
+            <div class="contact-links">
+                <a href="mailto:wilsonalex558@gmail.com" class="contact-link">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                    wilsonalex558@gmail.com
+                </a>
+                <a href="https://www.linkedin.com/in/alex-wilson-331696322/" target="_blank" rel="noopener" class="contact-link">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                    LinkedIn
+                </a>
+                <a href="https://github.com/AlexWilsonSoftware" target="_blank" rel="noopener" class="contact-link">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.605-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
+                    GitHub
+                </a>
+                <span class="contact-link" style="cursor:default">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+          021 079 0730
+        </span>
+            </div>
+        </section>
+
+        <footer class="footer">© 2026 Alex Wilson</footer>
+
+    </main>
+</div>
+
+</body>
+</html>
